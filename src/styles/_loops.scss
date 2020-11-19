@@ -1,0 +1,33 @@
+@each $days in $daysOfTheMonth {
+  @for $i from 1 through $days {
+    .calendar-#{$days} > div:nth-child(#{$i}) {
+      width: $dayWidth;
+      height: $dayHeight;
+      margin: 0 $dayGap $dayGap 0;
+
+      border: 1px solid black;
+      text-align: center;
+      line-height: $dayHeight;
+      cursor: pointer;
+
+      background-color: $cellBgColor;
+
+      transition: transform 0.5s ease;
+
+      &::before {
+        content: "#{$i}";
+      }
+
+      &:hover {
+        background-color: $cellHoverColor;
+        transform: translateY(-20px);
+      }
+    }
+  }
+}
+
+@each $firstDay, $coef in $firstDays {
+  .calendar-#{$firstDay} > div:first-child {
+    margin-left: $gapForFirstDay * $coef + ($dayGap * $coef);
+  }
+}
