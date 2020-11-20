@@ -3,4 +3,25 @@
   flex-wrap: wrap;
   margin: 100px auto;
   max-width: 707px;
+
+  div {
+    display: none;
+    width: $dayWidth;
+    height: $dayHeight;
+    margin: 0 $dayGap $dayGap 0;
+
+    border: 1px solid black;
+    text-align: center;
+    line-height: $dayHeight;
+    cursor: pointer;
+
+    background-color: $cellBgColor;
+
+    transition: transform 0.5s ease;
+
+    &:hover {
+      background-color: $cellHoverColor;
+      transform: translateY(-20px);
+    }
+  }
 }
